@@ -13,6 +13,7 @@ background-color: #ff9a9e;
 }
 
 nav {
+<<<<<<< HEAD:src/components/Navbar/Navbar.css
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -80,6 +81,27 @@ ul li a {
 .login-button:hover {
     background-color: black;
 }
+=======
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     padding: 20px;
+     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+     position: relative;
+ }
+ 
+ #navbar {
+     display: flex;
+     align-items: center;
+     width: 90%;
+     justify-content: space-between;
+     margin: auto;
+ }
+ 
+ nav a img {
+     width: 100px;
+     height: 50px;
+>>>>>>> 0a7da75aed904470437eb3bb0362310276d21fac:src/layout/Navbar.css
 
  
 
