@@ -1,21 +1,20 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
 import "./Navbar.css";
-
-const Navbar = () => {
+const Navbar = ({setShowLogin}) => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const slides = [
-        "https://cdn.galaxycine.vn/media/2024/5/27/2048_1716778970480.jpg",
-        "https://cdn.galaxycine.vn/media/2024/6/6/xummer-combo-2048x682_1717668878472.jpg",
-        "https://cdn.galaxycine.vn/media/2024/6/13/io2-2048_1718251991479.jpg",
-        "https://cdn.galaxycine.vn/media/2024/6/13/the-exorcism-russell-crowe-2_1718259981357.jpg",
-        "https://cdn.galaxycine.vn/media/2024/2/8/2048x682_1707364876796.jpg"
+        "https://theme.hstatic.net/200000377165/1001243925/14/slide_1_img.jpg?v=17",
+        "https://theme.hstatic.net/200000377165/1001243925/14/slide_3_img.jpg?v=17",
+        "https://theme.hstatic.net/200000377165/1001243925/14/slide_2_img.jpg?v=17",
+        "https://theme.hstatic.net/200000377165/1001243925/14/slide_3_img.jpg?v=17"
+
     ];
 
     useEffect(() => {
         const timer = setInterval(() => {
             nextSlide();
-        }, 5000); // Change slide every 5 seconds
+        }, 5000); 
 
         return () => clearInterval(timer);
     }, [currentSlide]);
@@ -30,23 +29,29 @@ const Navbar = () => {
 
     return (
         <>
-            <nav>
-                <div id="navbar">
-                    <a href="index.html">
-                        <img src="https://www.galaxycine.vn/_next/static/media/galaxy-logo-mobile.074abeac.png" alt="Galaxy Logo" />
-                    </a>
-                    <ul>
-                        <li><a href="index.html">Phim</a></li>
-                        <li><a href="index.html">Góc Điện Ảnh</a></li>
-                        <li><a href="index.html">Sự Kiện</a></li>
-                        <li><a href="index.html">Rạp/Giá Vé</a></li>
-                    </ul>
-                    <div className="navbar-right">
-                        <input type="text" placeholder="Tìm kiếm" className="search-input" />
-                        <button className="login-button">Đăng Nhập</button>
-                    </div>
-                </div>
-            </nav>
+           <nav className="nav">
+    <div id="navbar">
+        <div className="box-logo">
+            <a href="index.html">
+                <img className="img-logo" src="./src/assets/logo.jpg" alt="Fruit-Store" />
+            </a>
+        </div>
+        <ul>
+            <li><a href="index.html">GIỚI THIỆU</a></li>
+            <li><a href="index.html">SẢN PHẨM</a></li>
+            <li><a href="index.html">TIN TỨC</a></li>
+            <li><a href="index.html">HỆ THỐNG BÁN HÀNG</a></li>
+            <li><a href="index.html">LIÊN HỆ</a></li>
+        </ul>
+        <div className="navbar-right">
+            <div className="box-search">
+                <input type="text" placeholder="Tìm kiếm" className="search-input" />
+                <span className="material-symbols-outlined">search</span>
+            </div>
+            <button className="login-button" onClick={()=>setShowLogin(true)}>Đăng Nhập</button>
+        </div>
+    </div>
+</nav>
 
             <div className="slider">
                 <button className="prev" onClick={prevSlide}>❮</button>

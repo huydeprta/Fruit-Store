@@ -1,6 +1,87 @@
-/* navbar.css */
+.nav{
+background-color: #ff9a9e;
+}
+
+.box-logo {
+    width: 150px;
+    height: auto;
+}
+
+.img-logo {
+    width: 100%;
+    height: 100%;
+}
 
 nav {
+<<<<<<< HEAD:src/components/Navbar/Navbar.css
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(253, 253, 253, 0.06);
+    position: relative;
+}
+
+#navbar {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    justify-content: space-between;
+    margin: auto;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    margin-right: 30px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 5px 10px;
+    display: block;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.box-search {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    padding: 5px 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+}
+
+.material-symbols-outlined {
+    font-size: 24px;
+}
+
+.login-button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #333;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background-color: black;
+}
+=======
      display: flex;
      align-items: center;
      justify-content: space-between;
@@ -20,46 +101,8 @@ nav {
  nav a img {
      width: 100px;
      height: 50px;
+>>>>>>> 0a7da75aed904470437eb3bb0362310276d21fac:src/layout/Navbar.css
 
- }
- 
- ul {
-     display: flex;
- }
- 
- ul li {
-     margin-right: 70px;
-     list-style-type: none;
- }
- 
- ul li a {
-     text-decoration: none;
-     color: black;
- }
- 
- .navbar-right {
-     display: flex;
-     align-items: center;
- }
- 
- .search-input {
-     padding: 5px 10px;
-     margin-right: 20px;
-     border: 1px solid #ccc;
-     border-radius: 20px;
- }
- 
- .login-button {
-     padding: 5px 10px;
-     border: none;
-     color: white;
-     border-radius: 20px;
-     cursor: pointer;
- }
- 
- .login-button:hover {
-     background-color: black;
- }
  
 
  .slider {
