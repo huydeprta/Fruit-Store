@@ -7,7 +7,7 @@ const Admin = () => {
             <div>
                 <div>
                     <nav>
-                        
+                         <h1>cc</h1>
                     </nav>
                 </div>
             </div>
