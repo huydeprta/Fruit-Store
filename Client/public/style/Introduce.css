@@ -1,0 +1,52 @@
+body, html {
+     margin: 0;
+     padding: 0;
+     height: 100%;
+     font-family: Arial, sans-serif;
+ }
+ 
+ .container {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     padding: 20px;
+ }
+ 
+ .content-bt {
+     text-align: center;
+     margin-bottom: 20px;
+     color: #ff9a9e;
+ }
+ 
+ .content {
+     max-width: 800px;
+     text-align: left;
+     width: 100%;
+ }
+ 
+ .ftr {
+     display: flex;
+     align-items: center;
+     margin-bottom: 5px;
+ }
+ 
+ .ftr-bt {
+     margin-left: 10px;
+ }
+ 
+ ul {
+     list-style-type: none;
+     padding: 0;
+ }
+ 
+ ul li {
+     margin: 5px 0;
+ }
+ 
+ img {
+     max-width: 100%;
+     height: auto;
+     display: block;
+     margin: 20px 0;
+ }
+ 
