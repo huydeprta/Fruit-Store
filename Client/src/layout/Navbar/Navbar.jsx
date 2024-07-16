@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-
+import SearchProduct from "../../containers/searchProduct";
 const Navbar = () => {
     return (
         <>
@@ -13,19 +13,17 @@ const Navbar = () => {
                         </Link>
                     </div>
                     <ul>
-                        <li><Link to="/">TRANG CHỦ</Link></li>
-                        <li><Link to="/product">SẢN PHẨM</Link></li>
-                        <li><Link to="/blog">TIN TỨC</Link></li>
-                        <li><Link to="/introduce">GIỚI THIỆU</Link></li>
-                        <li><Link to="/contact">LIÊN HỆ</Link></li>
+                        <li><Link to="/">Trang Chủ</Link></li>
+                        <li><Link to="/product">Sản Phẩm</Link></li>
+                        <li><Link to="/blog">Tin Tức</Link></li>
+                        <li><Link to="/introduce">Giới Thiệu</Link></li>
+                        <li><Link to="/contact">Liên Hệ</Link></li>
                     </ul>
 
                     <div className="navbar-right">
                         <div className="box-search">
+                            <SearchProduct></SearchProduct>
                             <Link to="/cart"><span className="material-symbols-outlined">shopping_bag</span></Link>
-
-                            <input type="text" placeholder="Tìm kiếm" className="search-input" />
-                            <span className="material-symbols-outlined">search</span>
                         </div>
                         <div className="group-btn">
                             <button className="login-button">

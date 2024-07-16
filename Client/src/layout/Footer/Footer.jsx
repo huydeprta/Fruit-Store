@@ -7,7 +7,7 @@ const Footer = () => {
             <div className='footer-fo'>
                 <div className="footer-left">
                     <h2>Fruit Store</h2>
-                    <p>Fruit Store là thương hiệu trái cây tươi chất lượng cao, với đa dạng sản phẩm phục vụ mọi nhu cầu: đặc sản vùng miền, trái cây nhập khẩu, quà tặng trái cây, mâm ngũ quả, nước ép, và trái cây sấy.</p>
+                    <p>Fruit Store là thương hiệu trái cây tươi chất lượng cao, với đa dạng sản phẩm phục vụ mọi nhu cầu: <br />đặc sản vùng miền, trái cây nhập khẩu, quà tặng trái cây, mâm ngũ quả, nước ép, và trái cây sấy.</p>
                     <div className="footer-icons">
                         <i className="fa-brands fa-facebook"></i>
                         <i className="fa-brands fa-instagram"></i>

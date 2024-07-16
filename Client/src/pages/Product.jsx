@@ -5,11 +5,7 @@ const Products = () => {
   return (
     <>
     <Navbar/>
-    <div>
     
-    </div>
-    <div>
-      <div>
         <div className="none">
             <div className="product-card">
                 <img src="https://product.hstatic.net/200000377165/product/artboard_6_6b979af74f1447afb0e256d58b80611a_large.png" alt="Papaya" className="product-image" />
@@ -41,11 +37,6 @@ const Products = () => {
                 <p className="price">65,000₫</p>
                 <button className="buy-button">CHỌN MUA</button>
             </div>
-          
-         
-          
-        </div>
-      </div>
     </div>
     <Footer/>
     </>

@@ -24,9 +24,9 @@
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 20px;
-    width: 80%;
     margin: auto;
     margin-top: 40px;
+    padding: 10px;
 }
 
 .btn-custom {
@@ -49,6 +49,7 @@
 
 .product-card:hover {
     transform: scale(1.05); 
+    cursor: pointer;
 }
 
 .product-image {
