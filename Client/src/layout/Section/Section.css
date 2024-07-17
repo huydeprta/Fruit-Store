@@ -1,7 +1,6 @@
 .slider {
      position: relative;
      max-width: 1500px;
-     margin: 40px auto;
      overflow: hidden;
      border-radius: 10px;
      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -43,14 +42,27 @@
  
  button.prev {
      left: 10px;
+     width: 35px;
+     width: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
  }
  
  button.next {
      right: 10px;
+     width: 35px;
+     width: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
  }
  
+
  button.prev:hover, button.next:hover {
      background-color: rgba(0, 0, 0, 0.8);
+
+
  }
  
 

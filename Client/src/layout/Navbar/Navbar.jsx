@@ -1,11 +1,8 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useState, useEffect } from "react";
+
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-
+import SearchProduct from "../../containers/searchProduct";
 const Navbar = () => {
-
-
     return (
         <>
             <nav className="nav">
@@ -16,29 +13,29 @@ const Navbar = () => {
                         </Link>
                     </div>
                     <ul>
-                        <li><Link to="/">TRANG CHỦ</Link></li>
-                        <li><Link to="/Product">SẢN PHẨM</Link></li>
-                        <li><Link to="/Blog">TIN TỨC</Link></li>
-                        <li><Link to="/Introduce">GIỚI THIỆU</Link></li>
-                        <li><Link to="/Contact">LIÊN HỆ</Link></li>
+                        <li><Link to="/">Trang Chủ</Link></li>
+                        <li><Link to="/product">Sản Phẩm</Link></li>
+                        <li><Link to="/blog">Tin Tức</Link></li>
+                        <li><Link to="/introduce">Giới Thiệu</Link></li>
+                        <li><Link to="/contact">Liên Hệ</Link></li>
                     </ul>
 
                     <div className="navbar-right">
                         <div className="box-search">
-                            <Link to="/Cart"><span className="material-symbols-outlined">shopping_bag</span></Link>
-
-                            <input type="text" placeholder="Tìm kiếm" className="search-input" />
-                            <span className="material-symbols-outlined">search</span>
+                            <SearchProduct></SearchProduct>
+                            <Link to="/cart"><span className="material-symbols-outlined">shopping_bag</span></Link>
                         </div>
-                        <button className="login-button">
-                            <Link to="/Login" className="login-link">Đăng Nhập</Link>
-                        </button>
+                        <div className="group-btn">
+                            <button className="login-button">
+                                <Link to="/login" className="btn-link">Đăng Nhập</Link>
+                            </button>
+                            <button className="login-button">
+                                <Link to="/register" className="btn-link">Đăng Ký</Link>
+                            </button>
+                        </div>
                     </div>
-
                 </div>
             </nav>
-
-
         </>
     );
 }

@@ -23,6 +23,9 @@ const Products = () => {
       <div>
         <div>
           <div className="none">
+    <Navbar/>
+    
+        <div className="none">
             <div className="product-card">
               <img src="https://product.hstatic.net/200000377165/product/artboard_6_6b979af74f1447afb0e256d58b80611a_large.png" alt="Papaya" className="product-image" />
               <p>Du du ruot vang huu co</p>
@@ -60,6 +63,8 @@ const Products = () => {
         </div>
       </div>
       <Footer />
+    </div>
+    <Footer/>
     </>
 
   );
