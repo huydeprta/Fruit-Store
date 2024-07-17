@@ -9,7 +9,7 @@ const Navbar = () => {
                 <div id="navbar">
                     <div className="box-logo">
                         <Link to="/">
-                            <img className="img-logo" src="./src/assets/logo.jpg" alt="Fruit-Store" />
+                            <img className="img-logo" src="http://hoaqua.langsonweb.com/wp-content/uploads/2020/09/logo-hoa-qua.png" alt="Fruit-Store" />
                         </Link>
                     </div>
                     <ul>

@@ -1,0 +1,54 @@
+.admin-navbar {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 10px 20px;
+     background-color: #f8f9fa;
+     border-bottom: 1px solid #e9ecef;
+   }
+   
+   .navbar-left {
+     display: flex;
+     align-items: center;
+   }
+   
+   .menu-button {
+     font-size: 24px;
+     background: none;
+     border: none;
+     cursor: pointer;
+     margin-right: 10px;
+   }
+   
+   .navbar-left h2 {
+     margin: 0;
+     font-size: 24px;
+   }
+   
+   .navbar-right {
+     display: flex;
+     align-items: center;
+   }
+   
+   .search-button, .date-button {
+     background: none;
+     border: none;
+     cursor: pointer;
+     margin-right: 10px;
+     font-size: 18px;
+   }
+   
+   .date-button {
+     border: 1px solid #e9ecef;
+     border-radius: 5px;
+     padding: 5px 10px;
+   }
+   
+   .profile img {
+     width: 32px;
+     height: 32px;
+     border-radius: 50%;
+   }
+   
+   
+   
