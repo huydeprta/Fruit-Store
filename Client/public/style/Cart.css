@@ -42,14 +42,14 @@
   }
   
   .continue-shopping {
-    background-color:  #ff9a9e;
+    background-color:  #669933;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
   }
   
   .update-cart {
-    background-color:  #ff9a9e;
+    background-color:  #669933;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
@@ -90,7 +90,7 @@
   
   .voucher-button {
     width: 100%;
-    background-color:  #ff9a9e;
+    background-color:  #669933;
     border: none;
     padding: 10px;
     cursor: pointer;
@@ -106,7 +106,7 @@
   
   .apply-voucher {
     width: 100%;
-    background-color: #ff9a9e;
+    background-color: #669933;
     border: none;
     padding: 10px;
     cursor: pointer;

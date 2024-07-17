@@ -77,14 +77,10 @@ body {
 .checkout-button {
   padding: 10px 20px;
   font-size: 14px;
-  background-color: #ff9a9e;
+  background-color: black;
   color: #fff;
   border: none;
   cursor: pointer;
-}
-
-.checkout-button:hover {
-  background-color: lightcoral;
 }
 
 .checkout-privacy-link a {

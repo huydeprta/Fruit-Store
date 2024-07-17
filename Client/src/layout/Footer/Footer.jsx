@@ -23,8 +23,10 @@ const Footer = () => {
                 </div>
                 <div className="footer-right">
                     <h2>Gein In</h2>
+                    <li>Huế</li>
                     <li>+ 034564634-</li>
                     <li>caothaihuy@gmail.com</li>
+                    <li>fb.com</li>
                 </div>
             </div>
             <hr className="footer-line-1" />

@@ -77,7 +77,7 @@
  }
  
  #btnSend {
-     background-color: #ff9a9e;
+     background-color: #669933;
      color: white;
      border: none;
      cursor: pointer;
@@ -86,7 +86,5 @@
      transition: background-color 0.3s;
  }
  
- #btnSend:hover {
-     background-color: lightpink;
- }
+
  
