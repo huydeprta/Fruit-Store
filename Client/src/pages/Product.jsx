@@ -22,8 +22,8 @@ const Products = () => {
       </div>
       <div>
         <div>
-          <div className="none">
-    <Navbar/>
+          
+    
     
         <div className="none">
             <div className="product-card">
@@ -63,8 +63,6 @@ const Products = () => {
         </div>
       </div>
       <Footer />
-    </div>
-    <Footer/>
     </>
 
   );
