@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
+import '../index.css'
 import publicRouterUser from "./routers/routerUser";
 import publicRouterAdmin from "./routers/routerAdmin";
 const App = () => {

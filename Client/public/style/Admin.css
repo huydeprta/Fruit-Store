@@ -81,16 +81,8 @@
   height: 32px;
   border-radius: 50%;
 }
-.admin-sidebar {
-  width: 250px;
-  background-color: #669933; 
-  color: #fff;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  overflow-y: auto;
-}
+
+
 
 .sidebar-header {
   display: flex;

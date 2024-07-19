@@ -33,6 +33,9 @@ const Navbar = () => {
                                 <Link to="/register" className="btn-link">Đăng Ký</Link>
                             </button>
                         </div>
+                        <div>
+                            <Link to={'/admin'}>Admin</Link>
+                        </div>
                     </div>
                 </div>
             </nav>
