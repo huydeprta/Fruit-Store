@@ -10,7 +10,7 @@ const Admin = () => {
         <div className="w-[20%] bg-[#669933] h-dvh">
           <Sidebar />
         </div>
-        <div className="w-[80%] bg-red-400">
+        <div className="w-[80%]">
           <Nav />
           <Mananger />
         </div>

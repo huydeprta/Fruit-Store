@@ -6,7 +6,7 @@ const Nav = () => {
     <div className="navbar-left">
   <input type="text" placeholder="Tìm kiếm..." className="search-input" />
   <button className="search-button">
-    <span className="material-symbols-outlined">search</span>
+    <span className="material-symbols-outlined ">search</span>
   </button>
 </div>
 
