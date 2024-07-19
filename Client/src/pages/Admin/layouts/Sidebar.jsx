@@ -47,6 +47,12 @@ const Sidebar = () => {
               Thống kê
             </div>
           </li>
+          <li>
+            <div className="hover:bg-white duration-300 menu-item">
+            <span className="material-symbols-outlined">inventory</span>
+              Đơn Hàng
+            </div>
+          </li>
         </ul>
          <div className="flex justify-center duration-300 bg-[#fff] shadow p-3 rounded-md m-2 hover:bg-[#e6e6e6] cursor-pointer">
           <span className="cursor-pointer">Đăng xuất</span>
