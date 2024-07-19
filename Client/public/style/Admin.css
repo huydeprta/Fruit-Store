@@ -1,54 +1,151 @@
 .admin-navbar {
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     padding: 10px 20px;
-     background-color: #f8f9fa;
-     border-bottom: 1px solid #e9ecef;
-   }
-   
-   .navbar-left {
-     display: flex;
-     align-items: center;
-   }
-   
-   .menu-button {
-     font-size: 24px;
-     background: none;
-     border: none;
-     cursor: pointer;
-     margin-right: 10px;
-   }
-   
-   .navbar-left h2 {
-     margin: 0;
-     font-size: 24px;
-   }
-   
-   .navbar-right {
-     display: flex;
-     align-items: center;
-   }
-   
-   .search-button, .date-button {
-     background: none;
-     border: none;
-     cursor: pointer;
-     margin-right: 10px;
-     font-size: 18px;
-   }
-   
-   .date-button {
-     border: 1px solid #e9ecef;
-     border-radius: 5px;
-     padding: 5px 10px;
-   }
-   
-   .profile img {
-     width: 32px;
-     height: 32px;
-     border-radius: 50%;
-   }
-   
-   
-   
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-input {
+  border: 1px solid #e9ecef;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  padding: 10px;
+  font-size: 16px;
+  flex-grow: 1; 
+  max-width: 400px; 
+  height: 40px; 
+  margin: 0; 
+  margin-left: 300px;
+}
+
+.search-button {
+  background-color: #669933;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 15px; 
+  cursor: pointer;
+  height: 40px; 
+  transition: background-color 0.3s ease; 
+}
+
+.search-button:hover {
+  background-color: #557722; 
+}
+
+.search-button .material-symbols-outlined {
+  color: white;
+  font-size: 24px; 
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.material-symbols-outlined {
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.notification, .email {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.notification:hover .material-symbols-outlined, 
+.email:hover .material-symbols-outlined {
+  color: #669933;
+}
+
+
+.user-name {
+  margin: 0 10px;
+}
+
+.profile-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+.admin-sidebar {
+  width: 250px;
+  background-color: #669933; 
+  color: #fff;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.sidebar-header span {
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+
+.sidebar-header h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.sidebar-menu {
+  list-style-type: none;
+  padding: 0;
+  display: block;
+}
+
+.section-title {
+  margin: 15px 0 10px 15px; 
+  font-size: 12px;
+  color: #c1c1c1; 
+  text-transform: uppercase;
+}
+
+.sidebar-menu .menu-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px; 
+  transition: background-color 0.3s; 
+}
+
+.sidebar-menu .menu-item span {
+  margin-right: 10px;
+}
+
+.admin-account-section {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  border-top: 1px solid #495057;
+}
+
+.admin-account-section span {
+  margin-right: 10px;
+}

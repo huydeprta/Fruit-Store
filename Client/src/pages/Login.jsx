@@ -14,7 +14,7 @@ const Login = () => {
           <a><Link to="/Register">Đăng Ký Tài Khoản</Link></a>
         </div>
         
-        <button type="submit">Login</button>
+        <button type="submit" >Login</button>
         <div className="social">
           <i className="fa-brands fa-facebook"></i>
           <i className="fa-brands fa-google"></i>
