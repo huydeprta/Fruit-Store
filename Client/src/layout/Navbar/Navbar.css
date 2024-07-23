@@ -55,6 +55,7 @@ ul li a {
 .navbar-right {
   display: flex;
   align-items: center;
+  gap: 10px;
 }
 
 .box-search {

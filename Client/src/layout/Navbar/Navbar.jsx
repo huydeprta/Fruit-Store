@@ -21,10 +21,12 @@ const Navbar = () => {
                     </ul>
 
                     <div className="navbar-right">
-                        <div className="box-search">
+                        <div className=" box-search">
                             <SearchProduct></SearchProduct>
-                            <Link to="/cart"><span className="material-symbols-outlined">shopping_bag</span></Link>
-                        </div>
+                            </div>
+                            <div>
+                            <Link to="/cart"><span className=" material-symbols-outlined">shopping_bag</span></Link>
+                            </div>
                         <div className="group-btn">
                             <button className="login-button">
                                 <Link to="/login" className="btn-link">Đăng Nhập</Link>
