@@ -5,6 +5,7 @@ const Introduce = () => {
     return (
         <>
         <Navbar/>
+            <div className=""> 
             <div className="container">
                 <div className="content-bt">
                     <h1>Về Chúng Tôi</h1>
@@ -109,6 +110,7 @@ const Introduce = () => {
                     </p>
                     <img src="path-to-your-image.png" alt="Imported Fruits" />
                 </div>
+            </div>
             </div>
             <Footer/>
         </>

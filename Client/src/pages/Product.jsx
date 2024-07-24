@@ -12,12 +12,12 @@ const Products = () => {
               <span>DANH MỤC SẢN PHẨM</span>
               </div>
               <div className="list-categories">
-                <span>Trái cây ngon hôm nay</span>
-                <span>Trái cây việt nam</span>
-                <span>Trái cây nhập khẩu</span>
-                <span>Trái cây cắt sẵn</span>
-                <span>Trái cây sấy khô</span>
-                <span>Nước ép trái cây nguyên chất</span>
+                <span className="hover:text-lime-500 duration-300">Trái cây ngon hôm nay</span>
+                <span className="hover:text-lime-500 duration-300">Trái cây việt nam</span>
+                <span className="hover:text-lime-500 duration-300">Trái cây nhập khẩu</span>
+                <span className="hover:text-lime-500 duration-300">Trái cây cắt sẵn</span>
+                <span className="hover:text-lime-500 duration-300">Trái cây sấy khô</span>
+                <span className="hover:text-lime-500 duration-300">Nước ép trái cây nguyên chất</span>
               </div>
           </div>
       <div>

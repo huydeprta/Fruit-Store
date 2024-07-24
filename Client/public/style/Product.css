@@ -12,11 +12,13 @@
     padding: 10px;
 }
 .list-categories > span{
-    display: block;
+    display: flex;
     padding-block: 10px;
     border-bottom: 1px solid rgb(216, 216, 216);
     font-size: 20px;
+    align-items: center;
 }
+
 .categories{
     background-color: rgb(81, 172, 81);
     padding: 10px;
