@@ -1,5 +1,4 @@
-// eslint-disable-next-line no-unused-vars
-import React from 'react';
+
 import "../../public/style/Cart.css";
 import Navbar from '../layout/Navbar/Navbar';
 import Footer from '../layout/Footer/Footer';

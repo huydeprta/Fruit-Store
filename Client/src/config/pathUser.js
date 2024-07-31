@@ -1,3 +1,4 @@
+
 const pathUser = {
     Home: '/',
     Products:'/product',
@@ -8,7 +9,7 @@ const pathUser = {
     Blog:'/blog',
     Introduce:'/introduce',
     Chekout:'/chekout',
-
+    Productdetails:'/productdetails',
 
 }
 export default pathUser 
