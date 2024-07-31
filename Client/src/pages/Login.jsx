@@ -26,6 +26,7 @@ const Login = () => {
    
       await AuthService.Login(dataLogin);
       navigate("/");
+      window.location.reload()
     }
 
   return (

@@ -21,6 +21,22 @@ const AuthService = {
           } catch (error) {
               showToastError(error.response.data.message)
           }
+    },
+     GetUserData: async (token) => {
+        console.log(token);
+        try {
+            const response = await http.get(`/user`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            console.log(response.data);
+            return response.data;
+        } catch (error) {
+            console.error("Error retrieving user data:", error);
+            throw new Error("Đã xảy ra lỗi khi lấy dữ liệu người dùng");
+        }
     }
+    
 }
 export default AuthService
