@@ -27,7 +27,7 @@ const UsersController = {
             console.log(newUser);
 
             const userReg = await newUser.save();
-            res.status(201).json(userReg);
+            res.status(201).json({message:"Đăng ký thành công" , userReg});
         } catch (error) {
             console.error(error);
             res.status(500).json({ message:error.message });
