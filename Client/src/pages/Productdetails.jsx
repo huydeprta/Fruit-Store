@@ -42,7 +42,7 @@ const ProductDetails = () => {
               <p>Đào mua về nên ăn ngay hoặc bảo quản trong ngăn mát tủ lạnh trong khoảng từ 2-4 ngày.</p>
              
             </div>
-            <div>
+            <div> 
               <h2 className="text-lg font-semibold">Lợi Ích Của Đào Tiên</h2>
               <ul className="list-disc list-inside">
                 <li>Giàu chất chống oxy hóa</li>
