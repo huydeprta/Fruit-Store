@@ -18,7 +18,12 @@ connectDB();
 
 // Routes
 const RouterUser = require('./routers/UserRouter/User')
+const RouterCategories = require('./routers/Products/CategoriesRouters')
+const ProductsCategories = require('./routers/Products/ProductsRouters')
 app.use('/api/v1/user',RouterUser)
+app.use('/api/v1/user/category', RouterCategories);
+app.use('/api/v1/user/products', ProductsCategories);
+
 // Default route
 app.get('/', (req, res) => {
     res.send("Welcome To Api");
