@@ -1,15 +1,15 @@
 const mongoose = require('mongoose');
 
-const fruitSchema = new mongoose.Schema({
-    NameFruit: {
+const productSchema = new mongoose.Schema({
+    name: {
         type: String,
         required: true
     },
-    imgFruit: {
+    image: [{
         type: String,
         required: true
-    },
-    descriptionFruit: {
+    }],
+    description: {
         type: String,
         required: true
     },
@@ -17,40 +17,17 @@ const fruitSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    isAvailable: {
-        type: Boolean,
-        required: true
-    },
-    supplier: [{
-        name: {
-            type: String,
-            required: true
-        },
-        supplierId: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Supplier'
-        }
-    }],
+
     origin: {
         type: String,
         required: true
     },
-    categories: [{
-        name: {
-            type: String,
-            required: true
-        },
-        categoryId: {
-            type: mongoose.Schema.Types.ObjectId,
+    categories: {
+       type: mongoose.Schema.Types.ObjectId,
             ref: 'Category'
-        }
-    }],
-    reviews: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Review'
-    }]
+    }
 });
 
-const Fruit = mongoose.model('Fruit', fruitSchema);
+const product = mongoose.model('Product', productSchema);
 
-module.exports = Fruit;
+module.exports = product;
