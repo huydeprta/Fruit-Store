@@ -20,21 +20,22 @@ const Login = () => {
         return showToastError("Mật khẩu phải có ít nhất 8 ký tự");
       }
   
-      // if (password !== confirmPassword) {
-      //   return showToastError("Mật khẩu không khớp");
-      // }
+    
    
-      await AuthService.Login(dataLogin);
-      navigate("/");
-      window.location.reload()
+     const userLog =  await AuthService.Login(dataLogin);
+     if(userLog === undefined){
+      return  showToastError("Mât khẩu không đúng");
+     }
+     navigate("/")
+     window.location.reload()
     }
 
   return (
     <div className="login-container">
       <div className="login-form">
         <h1 className="text-2xl">Đăng Nhập</h1>
-        <label htmlFor="username" className="font-bold">Tên tài khoản hoặc địa chỉ email *</label>
-        <input type="text"  id="username"  onChange={(e) => setEmail(e.target.value)}/>
+        <label htmlFor="email" className="font-bold">Tên tài khoản hoặc địa chỉ email *</label>
+        <input type="text"  id="email"  onChange={(e) => setEmail(e.target.value)}/>
         <label htmlFor="password" className="font-bold" >Mật khẩu *</label>
         <input type="password"  id="password" onChange={(e) => 
           setPassword(e.target.value)}/>
