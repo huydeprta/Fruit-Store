@@ -4,19 +4,21 @@ const Category = require('../../../model/User/ModelCategories');
 const ProductsController = {
     addProducts: async (req, res) => {
         try {
-            const { name, image, description, price, origin, categories } = req.body;
+            const { name, origin, image, storage, expirydate, categories, price, description } = req.body;
     
             if (!categories) {
                 return res.status(400).json({ error: "categories are required" });
             }
-    
+
             const newProduct = new Product({
-                name,
+                name, 
+                origin, 
                 image,
-                description,
+                storage, 
+                expirydate,
+                categories,
                 price,
-                origin,
-                categories
+                description
             });
     
             const savedProduct = await newProduct.save();
@@ -85,10 +87,10 @@ const ProductsController = {
     updateProducts: async (req, res) => {
         try {
             const Productid = req.params.id;
-            const {name, image, description, price, origin, categories } = req.body;
+            const {name, origin, image, storage, expirydate, categories, price, description } = req.body;
             const updateProducts = await Product.findByIdAndUpdate(
                 Productid,
-                {name, image, description, price, origin, categories  },
+                {name, origin, image, storage, expirydate, categories, price, description  },
                 { new: true }
                 
             );

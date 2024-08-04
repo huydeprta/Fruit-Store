@@ -3,11 +3,17 @@ import { useEffect, useState } from "react";
 import AddButton from "../../../components/Button/AddButton";
 import UpdateButton from "../../../components/Button/UpdateButton";
 import DeleteButton_square from "../../../components/Button/DeleteButton";
-import AddForm from "../components/addForm";
 import CategoreisService from "../../../services/admin/categories/categoriesService";
+import AddForm from "../components/From/addForm";
+import EditForm from "../components/From/editForm";
 const ManangerCategories = () => {
   const [categories,setCategories] = useState([])
+  const [editCategories,setEditCategory] = useState({})
+  const [editDataCategories,setDataEditCategory] = useState("")
+
+
   const [formAdd, setFormAdd] = useState(false)
+  const [formEdit, setFormEdit] = useState(false)
   const [nameProduct, setNameProduct] = useState("")
   const getAllCateories = async ()=>{
     const {data} = await CategoreisService.getAllCategories()
@@ -38,7 +44,22 @@ const ManangerCategories = () => {
      await CategoreisService.DeleteCategories(id)
      getAllCateories()
   }
-  
+
+  const updateCategory = async () => {
+    
+    if (!editDataCategories) {
+      return;
+      
+  }
+    const data = {
+      name:editDataCategories
+    }
+    
+ 
+    await CategoreisService.UpdateCategory(editCategories?._id,data);
+    getAllCateories()
+};
+
   return (
     <>
       {formAdd && (
@@ -54,6 +75,18 @@ const ManangerCategories = () => {
           />
         </div>
       )}
+
+      {formEdit &&(
+      <div className="fixed left-[45%] bg-[#fff] p-5 w-[500px] z-10">
+           <EditForm 
+    value={editDataCategories}
+     onChange={(e)=>setDataEditCategory(e.target.value)}
+    onClick={()=>updateCategory()}
+    placeholder="Sửa tên danh mục"
+  />
+      </div>
+      )}
+  
 
       <div className="overflow-y-auto h-[640px] scrollbar-thin">
         <table className="w-full"  >
@@ -82,7 +115,11 @@ const ManangerCategories = () => {
               <td className="text-left py-2"></td>
               <td className="px-4 py-2">
                 <div className="flex items-center justify-center">
-                  <UpdateButton />
+                  <UpdateButton   clickUpdate={() => {
+                        setFormEdit(true),
+                        setEditCategory(category),
+                        setDataEditCategory(category.name)
+                      }} />
                   <DeleteButton_square clickDelete={()=>deleteCategory(category?._id)} />
                 </div>
               </td>

@@ -29,6 +29,15 @@ const CategoreisService = {
             showToastError(error.response.data.message)
         }
   },
+    UpdateCategory: async (id , dataCategories)=>{
+    try {
+        const {data} = await http.put(`/user/category/${id}`,dataCategories) ;
+        showToastSuccess(data.message)
+        return data ;
+    } catch (error) {
+        showToastError(error.response.data.message)
+    }
+  }
    
     
 }

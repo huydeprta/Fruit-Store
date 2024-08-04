@@ -25,7 +25,7 @@ const categoryController = {
             if (!updatedCategory) {
                 return { success: false, message: 'Không tìm thấy danh mục' };
             }
-            res.status(200).json(updatedCategory)
+            res.status(200).json({ message: 'Danh mục đã sửa tạo thành công',updatedCategory})
         } catch (error) {
             res.status(500).json({ message: "Lỗi server" })
         }
