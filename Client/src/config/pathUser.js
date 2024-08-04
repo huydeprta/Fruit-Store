@@ -10,6 +10,9 @@ const pathUser = {
     Introduce:'/introduce',
     Chekout:'/chekout',
     Productdetails:'/productdetails',
+    NotFound:'/NotFound',
+
+
 
 }
 export default pathUser 

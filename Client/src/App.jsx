@@ -5,12 +5,13 @@ import publicRouterUser from "./routers/routerUser";
 import publicRouterAdmin from "./routers/routerAdmin";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+import ProtectedRoute from "./routers/protectedRoute";
 const App = () => {
 
   return (
     <>
       <div className="App">
-        <ToastContainer/>
+        <ToastContainer />
         <Routes>
           {publicRouterUser.map((route, index) => (
             <Route
@@ -22,17 +23,23 @@ const App = () => {
             />
           ))}
         </Routes>
+
         <Routes>
+
           {publicRouterAdmin.map((route, index) => (
             <Route
               key={index}
               path={route.path}
               element={
-                <route.component />
+                <ProtectedRoute>
+                  <route.component />
+                </ProtectedRoute>
+
               }
             />
           ))}
         </Routes>
+
       </div>
     </>
   );

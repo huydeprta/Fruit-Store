@@ -9,6 +9,7 @@ import Blog from "../pages/Blog";
 import Introduce from "../pages/Introduce";
 import Chekout from "../pages/Chekout";
 import Productdetails from "../pages/Productdetails";
+import NotFound from "../pages/NotFound";
 const publicRouterUser = [
     {
         path: PathUser.Home,
@@ -50,6 +51,10 @@ const publicRouterUser = [
         path: PathUser.Chekout,
         component: Chekout,
     },
-   
+    {
+        path: PathUser.NotFound,
+        component: NotFound,
+    },
+
 ]
 export default publicRouterUser
