@@ -41,7 +41,8 @@ const ProductsController = {
 
     getProducts: async (req, res) => {
         try {
-            const getAllProducts = await Product.find();
+            const getAllProducts = await Product.find()
+            .populate('categories' , 'name')
             res.status(200).json(getAllProducts);
         } catch (error) {
             console.error("Error getting all Products:", error);
@@ -67,6 +68,7 @@ const ProductsController = {
         try {
             const {id} = req.params
             const deletedProduct = await Product.findByIdAndDelete(id);
+            
             if (!deletedProduct) {
                 return res.status(404).json({ error: 'Product not found' });
             }
@@ -77,7 +79,9 @@ const ProductsController = {
             );
     
     
-            res.status(200).json("Successfully deleted");
+            await Product.findByIdAndDelete(id);
+    
+            res.status(200).json({ message: 'Sản phẩm đã được xóa thành công' });
         } catch (error) {
             console.error("Error deleting product:", error.message);
             res.status(500).json({ error: "Internal Server Error" });
@@ -90,11 +94,16 @@ const ProductsController = {
             const {name, origin, image, storage, expirydate, categories, price, description } = req.body;
             const updateProducts = await Product.findByIdAndUpdate(
                 Productid,
-                {name, origin, image, storage, expirydate, categories, price, description  },
+                {name,
+                origin,
+                image,
+                storage,
+                expirydate,
+                categories,price, description  },
                 { new: true }
                 
             );
-            if (categories) {
+            if (!updateProducts) {
                 await Category.updateMany(
                     { products: productId },
                     { $pull: { products: productId } }
@@ -106,7 +115,8 @@ const ProductsController = {
                 );
             }
 
-            res.status(200).json({ success: true, message: 'Product updated successfully', updateProducts });
+            res.status(200).json({ success: true, message: 'Cập nhập thành công', updateProducts });
+            
         } catch (error) {
             console.error("Error updating Product:", error);
             res.status(500).json({ success: false, message: 'Internal Server Error', error: error.message });

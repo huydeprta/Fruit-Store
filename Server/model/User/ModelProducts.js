@@ -18,7 +18,7 @@ const productSchema = new mongoose.Schema({
         required: true
     },
     expirydate: {
-        type: Date,
+        type: String,
         required: true
     },
     categories: {
