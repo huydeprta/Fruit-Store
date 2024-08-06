@@ -6,7 +6,9 @@ const userSchema = new mongoose.Schema({
     password: { type: String, required: true },
     admin: { type:Boolean, default:false },
     status:{default:false , type:Boolean}
-});
+},
+{ timestamps: true }
+);
 
 const User = mongoose.model('User', userSchema);
 

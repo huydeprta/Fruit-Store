@@ -73,6 +73,14 @@ const UsersController = {
             res.status(500).json({ message: 'Đã xảy ra lỗi trong quá trình lấy thông tin người dùng' });
         }
     },
+    getAllUser: async (req,res)=>{
+        try {
+           const AllUser = await User.find()
+           res.status(200).json(AllUser)
+        } catch (error) {
+         res.status(500).json({message:error.message});
+        }
+    }
 }
 
 
