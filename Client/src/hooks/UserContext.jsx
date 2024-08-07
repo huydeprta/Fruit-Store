@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 export const UserProvider = createContext()
-import AuthService from "../services/authService";
+import AuthService from "../services/admin/authService";
 const UserContext = ({children}) => {
     const token = localStorage.getItem('token')
     const [user,setUser] = useState(null)

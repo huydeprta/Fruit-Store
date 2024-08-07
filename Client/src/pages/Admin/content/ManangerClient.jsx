@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import AuthService from "../../../services/authService";
+import AuthService from "../../../services/admin/authService";
 import { format } from 'date-fns';
 import DeleteButton_square from "../../../components/Button/DeleteButton";
 import CheckButton from "../../../components/Button/CheckButton";
@@ -18,6 +18,15 @@ const ManagerClient = () => {
     }, []);
     
     console.log(allUser);
+
+    const deleteUser = async (id)=>{
+        console.log(id);
+         if(!id){
+          return;
+         }
+         await AuthService.deleteUser(id)
+         getAlluser()
+      }
     
     return (
         <>
@@ -64,7 +73,7 @@ const ManagerClient = () => {
                                                     // }}
                                                 />
                                                 <DeleteButton_square 
-                                                    // clickDelete={() => { handleDelete(user._id); }}
+                                                    clickDelete={() => {deleteUser(user?._id);}}
                                                 />
                                             </>
                                         )}

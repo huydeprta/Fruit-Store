@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "../../public/style/Register.css";
-import AuthService from "../services/authService";
+import AuthService from "../services/admin/authService";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { showToastError } from "../config/toastConfig";

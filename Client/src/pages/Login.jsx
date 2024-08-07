@@ -3,7 +3,7 @@ import {  Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { showToastError } from "../config/toastConfig";
-import AuthService from "../services/authService";
+import AuthService from "../services//admin/authService";
 
 const Login = () => {
   const [email, setEmail] = useState("");

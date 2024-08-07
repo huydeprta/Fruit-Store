@@ -1,7 +1,7 @@
 
-import http from "../config/http";
-import { showToastError } from "../config/toastConfig";
-import { showToastSuccess } from "../config/toastConfig";
+import http from "../../config/http";
+import { showToastError } from "../../config/toastConfig";
+import { showToastSuccess } from "../../config/toastConfig";
 const AuthService = {
     Register: async (dataRegister) => {
         try {
@@ -16,11 +16,23 @@ const AuthService = {
             const { data } = await http.post('/user/login', dataLogin)
             localStorage.setItem("token", JSON.stringify(data.token))
             showToastSuccess(data.message)
+            
             return data
         } catch (error) {
             showToastError(error.response.data.message)
         }
     },
+
+    deleteUser: async (id)=>{
+        try {
+            const {data} = await http.delete(`/user/${id}`)
+            showToastSuccess(data.message)
+            return data
+        } catch (error) {
+            showToastError(error.response.data.message)
+        }
+  },
+
     GetUserData: async (token) => {
         console.log(token);
         try {

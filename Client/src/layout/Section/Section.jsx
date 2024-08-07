@@ -6,9 +6,9 @@ const Section = () => {
 
      const [currentSlide, setCurrentSlide] = useState(0);
      const slides = [
-         "https://theme.hstatic.net/200000377165/1001243925/14/slide_3_img.jpg?v=17",
-         "https://theme.hstatic.net/200000377165/1001243925/14/slide_2_img.jpg?v=17",
-         "https://theme.hstatic.net/200000377165/1001243925/14/slide_3_img.jpg?v=17"
+         "https://hoaqua.langsonweb.com/wp-content/uploads/2020/09/banner-traicay.jpg",
+         "https://hoaqua.langsonweb.com/wp-content/uploads/2020/09/banner-traicay.jpg",
+         "https://hoaqua.langsonweb.com/wp-content/uploads/2020/09/banner-traicay.jpg"
      ];
  
  

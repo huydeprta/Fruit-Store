@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import AddButton from "../../../components/Button/AddButton";
 import UpdateButton from "../../../components/Button/UpdateButton";
 import DeleteButton_square from "../../../components/Button/DeleteButton";
-import CategoreisService from "../../../services/admin/categories/categoriesService";
+import CategoreisService from "../../../services/categories/categoriesService";
 import AddForm from "../components/From/addForm";
 import EditForm from "../components/From/editForm";
 const ManangerCategories = () => {

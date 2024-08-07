@@ -92,14 +92,18 @@ const ProductsController = {
         try {
             const Productid = req.params.id;
             const {name, origin, image, storage, expirydate, categories, price, description } = req.body;
+            
             const updateProducts = await Product.findByIdAndUpdate(
                 Productid,
-                {name,
+                {
+                name,
                 origin,
                 image,
                 storage,
                 expirydate,
-                categories,price, description  },
+                categories,
+                price,
+                description},
                 { new: true }
                 
             );
@@ -108,7 +112,7 @@ const ProductsController = {
                     { products: productId },
                     { $pull: { products: productId } }
                 );
-    
+            
                 await Category.updateOne(
                     { _id: categories },
                     { $addToSet: { products: productId } }
@@ -118,7 +122,6 @@ const ProductsController = {
             res.status(200).json({ success: true, message: 'Cập nhập thành công', updateProducts });
             
         } catch (error) {
-            console.error("Error updating Product:", error);
             res.status(500).json({ success: false, message: 'Internal Server Error', error: error.message });
         }
     }

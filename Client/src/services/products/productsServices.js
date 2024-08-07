@@ -1,6 +1,6 @@
-import http from "../../../config/http";
-import { showToastError } from "../../../config/toastConfig";
-import { showToastSuccess } from "../../../config/toastConfig";
+import http from "../../config/http";
+import { showToastError } from "../../config/toastConfig";
+import { showToastSuccess } from "../../config/toastConfig";
 
 const ProductsServices = {
     getAllProducts: async () => {

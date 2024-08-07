@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import AddButton from "../../../components/Button/AddButton";
 import UpdateButton from "../../../components/Button/UpdateButton";
 import DeleteButton_square from "../../../components/Button/DeleteButton";
-import ProductsServices from "../../../services/admin/products/productsServices";
-import CategoreisService from "../../../services/admin/categories/categoriesService";
+import ProductsServices from "../../../services/products/productsServices";
+import CategoreisService from "../../../services/categories/categoriesService";
 import AddProductForm from "../components/product/AddProductForm";
 import EditProductForm from "../components/product/EditProductForm";
 const ManagerProduct = () => {
@@ -105,8 +105,8 @@ const ManagerProduct = () => {
       description: editDataProduct.description
     }
     
-    await ProductsServices.UpdateProducts(editProduct?.name ,data);
-    console.log(editDataProduct);
+    await ProductsServices.UpdateProducts(editProduct?._id, data);
+    
     getAllProducts()
 };
 
@@ -136,13 +136,13 @@ const ManagerProduct = () => {
         </div>
       )}
 
-      <div className="overflow-y-auto h-[640px] scrollbar-thin">
+      <div className="overflow-y-auto  scrollbar-thin ">
         <table className="w-full">
           <thead className="bg-gray-100 h-16">
             <tr>
               <th className="text-left px-4">Tên</th>
               <th className="text-left px-4">Xuất xứ</th>
-              <th className="text-left px-4">Ảnh</th>
+              <th className="text-left px-4">Ảnh</th> 
               <th className="text-left px-4">Bảo quản</th>
               <th className="text-left px-4">Hạn sử dụng</th>
               <th className="text-left px-4">Danh mục</th>
@@ -172,7 +172,7 @@ const ManagerProduct = () => {
                 <td className="text-left px-4 py-2">{product.expirydate}</td>
                 <td className="text-left px-4 py-2">{product.categories?.name}</td>
                 <td className="text-left px-4 py-2">{product.price} VND</td>
-                <td className="text-left px-4 py-2">{product.description}</td>
+                <td className="text-left px-4 py-2 w-[400px]">{product.description}</td>
                 <td className="px-4 py-2">
                   <div className="flex items-center justify-center">
                     <UpdateButton clickUpdate={() => {
