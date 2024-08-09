@@ -2,11 +2,24 @@ import Navbar from "../layout/Navbar/Navbar";
 import Section from "../layout/Section/Section";
 import Footer from "../layout/Footer/Footer";
 import { Link } from "react-router-dom";
+import ProductsServices from "../services/products/productsServices";
+import { useEffect, useState } from "react";
+import { formatCurrency } from "../config/formatCurrency";
 const Home = () => {
+    const [product, setProduct] = useState([])
+    const getAllProduct = async () => {
+        const { data } = await ProductsServices.getAllProducts()
+        setProduct(data)
+    }
+    useEffect(() => {
+        getAllProduct()
+    }, [])
+    console.log(product);
+
     return (
         <>
-            <Navbar/>
-            <Section/>
+            <Navbar />
+            <Section />
             <div>
                 <div className="center">
                     <div>
@@ -14,12 +27,16 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="none">
-                    <div className="product-card">
-                        <img src="https://product.hstatic.net/200000377165/product/artboard_6_6b979af74f1447afb0e256d58b80611a_large.png" alt="Papaya" className="product-image" />
-                        <p>Du du ruot vang huu co</p>
-                        <p className="price">65,000₫</p>
-                        <button className="buy-button"><Link to="/ProductDetails">CHỌN MUA</Link></button>
-                    </div>
+                    {product.map((fruit) => (
+                        <div className="product-card" key={fruit.id}>
+                            <img src={fruit?.image[0]} />
+                            <p className="font-bold">{fruit?.name}</p>
+                            <p className="text-red-500 price ">   { formatCurrency(fruit?.price)}</p>
+                            <p className="font-bold">Xuất xứ:  {fruit?.origin}</p>
+                            <button className="bg-green-700 w-[95%] p-2 mx-2 text-[#fff] rounded-[5px]"><Link to="/ProductDetails">CHỌN MUA</Link></button>
+
+                        </div>
+                    ))}
 
                 </div>
             </div>

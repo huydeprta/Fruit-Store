@@ -6,6 +6,7 @@ import ProductsServices from "../../../services/products/productsServices";
 import CategoreisService from "../../../services/categories/categoriesService";
 import AddProductForm from "../components/product/AddProductForm";
 import EditProductForm from "../components/product/EditProductForm";
+import { formatCurrency } from "../../../config/formatCurrency";
 const ManagerProduct = () => {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -159,20 +160,20 @@ const ManagerProduct = () => {
           <tbody>
             {products?.map((product) => (
               <tr className="border-b border-gray-200" key={product._id}>
-                <td className="text-left px-4 py-2">{product.name}</td>
-                <td className="text-left px-4 py-2">{product.origin}</td>
+                <td className="text-left px-4 py-2">{product?.name}</td>
+                <td className="text-left px-4 py-2">{product?.origin}</td>
                 <td className="text-left px-4 py-2">
                   <img
                     className="w-[60px] rounded-[10px]"
-                    src={product.image}
-                    alt={product.name}
+                    src={product?.image}
+                    alt={product?.name}
                   />
                 </td>
-                <td className="text-left px-4 py-2">{product.storage}</td>
-                <td className="text-left px-4 py-2">{product.expirydate}</td>
-                <td className="text-left px-4 py-2">{product.categories?.name}</td>
-                <td className="text-left px-4 py-2">{product.price} VND</td>
-                <td className="text-left px-4 py-2 w-[400px]">{product.description}</td>
+                <td className="text-left px-4 py-2">{product?.storage}</td>
+                <td className="text-left px-4 py-2">{product?.expirydate}</td>
+                <td className="text-left px-4 py-2">{product?.categories?.name}</td>
+                <td className="text-left px-4 py-2">{ formatCurrency(product?.price)}</td>
+                <td className="text-left px-4 py-2 w-[400px]">{product?.description}</td>
                 <td className="px-4 py-2">
                   <div className="flex items-center justify-center">
                     <UpdateButton clickUpdate={() => {
