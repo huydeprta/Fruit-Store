@@ -20,11 +20,10 @@ const ManagerClient = () => {
     console.log(allUser);
 
     const deleteUser = async (id)=>{
-        console.log(id);
          if(!id){
           return;
          }
-         await AuthService.deleteUser(id)
+         await AuthService.DeleteUser(id)
          getAlluser()
       }
     

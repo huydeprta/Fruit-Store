@@ -23,7 +23,7 @@ const AuthService = {
         }
     },
 
-    deleteUser: async (id)=>{
+    DeleteUser: async (id)=>{
         try {
             const {data} = await http.delete(`/user/${id}`)
             showToastSuccess(data.message)
