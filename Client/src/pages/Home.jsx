@@ -29,12 +29,13 @@ const Home = () => {
                 <div className="none">
                     {product.map((fruit) => (
                         <div className="product-card" key={fruit.id}>
-                            <img src={fruit?.image[0]} />
-                            <p className="font-bold">{fruit?.name}</p>
-                            <p className="text-red-500 price ">   { formatCurrency(fruit?.price)}</p>
-                            <p className="font-bold">Xuất xứ:  {fruit?.origin}</p>
-                            <button className="bg-green-700 w-[95%] p-2 mx-2 text-[#fff] rounded-[5px]"><Link to="/ProductDetails">CHỌN MUA</Link></button>
-
+                            <Link to={`/ProductDetails/${fruit._id}`}>
+                                <img src={fruit?.image[0]} />
+                                <p className="font-bold">{fruit?.name}</p>
+                                <p className="text-red-500 price ">   {formatCurrency(fruit?.price)}</p>
+                                <p className="font-bold">Xuất xứ:  {fruit?.origin}</p>
+                                <button className="bg-green-700 w-[95%] p-2 mx-2 text-[#fff] rounded-[5px]">Chọn Mua</button>
+                            </Link>
                         </div>
                     ))}
 

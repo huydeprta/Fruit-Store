@@ -37,6 +37,15 @@ const ProductsServices = {
       } catch (error) {
           showToastError(error.response.data.message)
       }
+    },
+    GetDeltailProduct: async (id)=>{
+      try {
+        const {data} = await http.get(`/user/products/${id}`) ;
+         console.log(data);
+        return data;
+    } catch (error) {
+        console.log(error.response.data.message)
+    }
     }
 
 

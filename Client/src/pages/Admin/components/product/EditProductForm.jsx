@@ -1,7 +1,10 @@
 const EditProductForm = (props) => {
-     const { onClick, product, setProduct, categories} = props;
-     return (
-         <div>
+  const { onClick, product, setProduct, categories } = props;
+  console.log('product', product);
+
+
+  return (
+    <div>
       <input
         className="block border rounded-md p-2 w-full mb-3"
         placeholder="Nhập tên sản phẩm"
@@ -40,13 +43,15 @@ const EditProductForm = (props) => {
       <select
         className="block border rounded-md p-2 w-full mb-3"
         value={product.categories}
-        onChange={(e) => setProduct({ ...product, categories: e.target.value })}
+      onChange={(e) => setProduct({ ...product, categories: e.target.value })}
       >
         <option value="">Chọn danh mục</option>
         {categories.map((category) => (
-          <option key={category._id} value={category._id}>
-            {category.name}
-          </option>
+          <>
+            <option key={category._id} value={category._id}>
+              {category.name}
+            </option>
+          </>
         ))}
       </select>
       <input
@@ -63,9 +68,9 @@ const EditProductForm = (props) => {
         value={product.description}
         onChange={(e) => setProduct({ ...product, description: e.target.value })}
       />
-             <button onClick={onClick} className="w-full bg-blue-500 text-[#fff] p-3 rounded-md">Cập nhật</button>
-         </div>
-     );
- };
- 
- export default EditProductForm;
+      <button onClick={onClick} className="w-full bg-blue-500 text-[#fff] p-3 rounded-md">Cập nhật</button>
+    </div>
+  );
+};
+
+export default EditProductForm;

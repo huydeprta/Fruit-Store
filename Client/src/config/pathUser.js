@@ -9,7 +9,7 @@ const pathUser = {
     Blog:'/blog',
     Introduce:'/introduce',
     Chekout:'/chekout',
-    Productdetails:'/productdetails',
+    Productdetails:'/productdetails/:id',
     NotFound:'/NotFound',
 
 

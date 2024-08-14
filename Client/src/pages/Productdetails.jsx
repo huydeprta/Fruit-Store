@@ -1,26 +1,42 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Navbar from "../layout/Navbar/Navbar";
 import Footer from "../layout/Footer/Footer";
-
+import ProductsServices from "../services/products/productsServices";
+import { formatCurrency } from "../config/formatCurrency";
 const ProductDetails = () => {
+  const [detailProduct, setDetailProduct] = useState({})
+  const { id } = useParams()
+  console.log(id);
+  const getDetailProduct = async () => {
+    const data = await ProductsServices.GetDeltailProduct(id)
+    setDetailProduct(data);
+
+  }
+  useEffect(() => {
+    getDetailProduct()
+  }, [id])
   return (
     <>
       <Navbar />
       <div className="max-w-screen-lg mx-auto p-4">
         <div className="flex flex-col md:flex-row gap-6">
           <div className="flex-1">
-            <div className="border rounded-lg p-2">
-              <img src="https://product.hstatic.net/200000377165/product/artboard_9_94dd13d284894ae0bd5d24827b6de158_master.png" alt="Đào Tiên Ngộ Không" className="w-full h-auto rounded" />
-            </div>
-            <div className="flex space-x-2 mt-2 justify-center">
-              <img src="https://product.hstatic.net/200000377165/product/artboard_9_94dd13d284894ae0bd5d24827b6de158_master.png" alt="Thumbnail 1" className="w-16 h-16 rounded border" />
-              <img src="https://product.hstatic.net/200000377165/product/artboard_9_94dd13d284894ae0bd5d24827b6de158_master.png" alt="Thumbnail 2" className="w-16 h-16 rounded border" />
-              <img src="https://product.hstatic.net/200000377165/product/artboard_9_94dd13d284894ae0bd5d24827b6de158_master.png" alt="Thumbnail 3" className="w-16 h-16 rounded border" />
-              <img src="https://product.hstatic.net/200000377165/product/artboard_9_94dd13d284894ae0bd5d24827b6de158_master.png" alt="Thumbnail 4" className="w-16 h-16 rounded border" />
-            </div>
+            {detailProduct?.image?.map((images) => (
+              <>
+                <div className="border rounded-lg p-2">
+                  <img src={images} alt={images} className="w-full h-auto rounded" />
+                </div>
+
+                <div className="flex space-x-2 mt-2 justify-center">
+                  <img src={images} alt="Thumbnail 1" className="w-16 h-16 rounded border cursor-pointer" />
+                </div>
+              </>
+            ))}
           </div>
           <div className="flex-1 space-y-4">
-            <h1 className="text-2xl font-bold">Đào Tiên Ngộ Không</h1>
-            <p className="text-red-500 text-lg font-semibold">265,000₫</p>
+            <h1 className="text-2xl font-bold">{detailProduct?.name}</h1>
+            <p className="text-red-500 text-lg font-semibold">{ formatCurrency(detailProduct?.price)}</p>
             <div className="flex items-center space-x-4">
               <div className="flex items-center">
                 <button className="border border-gray-400 px-2 py-1">-</button>
@@ -33,22 +49,15 @@ const ProductDetails = () => {
             </div>
             <div>
               <h2 className="text-lg font-semibold">Thông Tin Sản Phẩm</h2>
-              <p>Xuất xứ: huyện Bình Cốc, tỉnh Bắc Kinh, Trung Quốc</p>
-              <p>Tiêu chuẩn chất lượng: Nhập khẩu chính ngạch</p>
-              
+              <p>{detailProduct?.description}</p>
+            </div>
+            <div>
+              <h2 className="text-lg font-semibold">Thông Tin Sản Phẩm</h2>
+              <p>{detailProduct?.origin}</p>
             </div>
             <div>
               <h2 className="text-lg font-semibold">Bảo Quản Và Sử Dụng</h2>
-              <p>Đào mua về nên ăn ngay hoặc bảo quản trong ngăn mát tủ lạnh trong khoảng từ 2-4 ngày.</p>
-             
-            </div>
-            <div> 
-              <h2 className="text-lg font-semibold">Lợi Ích Của Đào Tiên</h2>
-              <ul className="list-disc list-inside">
-                <li>Giàu chất chống oxy hóa</li>
-                <li>Hỗ trợ giảm cân hiệu quả</li>
-
-              </ul>
+              <p>{detailProduct?.storage}</p>
             </div>
           </div>
         </div>

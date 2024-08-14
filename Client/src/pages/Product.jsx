@@ -2,34 +2,61 @@ import "../../public/style/Product.css";
 import Navbar from "../layout/Navbar/Navbar";
 import Footer from "../layout/Footer/Footer";
 import ButtonProducts from "../../components/button/buttonProducts";
+import CategoreisService from "../services/categories/categoriesService";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 const Products = () => {
+  const [Categories, setCategories] = useState([])
+  const [productCategories, setProductCategories] = useState({})
+
+
+  const getDataCategories = async () => {
+    const { data } = await CategoreisService.getAllCategories()
+    setProductCategories(data[0])
+    setCategories(data);
+  }
+  useEffect(() => {
+    getDataCategories()
+  }, [])
+
+  const handleShowProductCategories = (idCate) => {
+    const product = Categories.find((productCate) => productCate._id === idCate)
+    setProductCategories(product)
+  }
+  console.log(productCategories);
+
   return (
     <>
       <Navbar />
       <div className="products">
-          <div className="cate">
-              <div  className="categories">
-              <span>DANH MỤC SẢN PHẨM</span>
-              </div>
-              <div className="list-categories">
-                <span className="hover:text-lime-500 duration-300">Trái cây ngon hôm nay</span>
-                <span className="hover:text-lime-500 duration-300">Trái cây việt nam</span>
-                <span className="hover:text-lime-500 duration-300">Trái cây nhập khẩu</span>
-                <span className="hover:text-lime-500 duration-300">Trái cây cắt sẵn</span>
-                <span className="hover:text-lime-500 duration-300">Trái cây sấy khô</span>
-                <span className="hover:text-lime-500 duration-300">Nước ép trái cây nguyên chất</span>
-              </div>
+        <div className="cate">
+          <div className="categories">
+            <span>DANH MỤC SẢN PHẨM</span>
           </div>
-      <div>
-        <div className="none">
-            <div className="product-card">
-              <img src="https://product.hstatic.net/200000377165/product/artboard_6_6b979af74f1447afb0e256d58b80611a_large.png" alt="Papaya" className="product-image" />
-              <p>Du du ruot vang huu co</p>
-              <p className="price">65,000₫</p>
-              <ButtonProducts/>
-            </div>
+          <div className="list-categories">
+            {Categories.map((nameCate) => (
+              <div key={nameCate._id}>
+                <span className="hover:text-lime-500 duration-300 cursor-pointer" onClick={() => handleShowProductCategories(nameCate?._id)}>{nameCate?.name}</span>
+              </div>
+            ))}
           </div>
-      </div>
+        </div>
+        <div>
+          <div className="none">
+            {productCategories?.Products?.map((product) => (
+              <>
+             <Link to={`/productdetails/${product._id}`}>
+                <div className="product-card">
+                  <img src={product?.image[0]} alt="Papaya" className="product-image" />
+                  <p>{product?.name}</p>
+                  <p className="price">65,000₫</p>
+                  <ButtonProducts />
+                </div>
+                </Link>
+              </>
+            ))}
+          </div>
+        </div>
       </div>
       <Footer />
     </>

@@ -59,7 +59,8 @@ const ManangerCategories = () => {
     await CategoreisService.UpdateCategory(editCategories?._id,data);
     getAllCateories()
 };
-
+  console.log('cccc',categories);
+  
   return (
     <>
       {formAdd && (

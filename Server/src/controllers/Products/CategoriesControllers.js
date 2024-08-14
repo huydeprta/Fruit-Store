@@ -2,6 +2,14 @@ const Category = require('../../../model/User/ModelCategories');
 
 
 const categoryController = {
+    getAllCategory: async (req, res) => {
+        try {
+            const allCategories = await Category.find().populate('Products')
+            res.status(200).json(allCategories);
+        } catch (error) {
+            res.status(500).json({ error:error.message});
+        }
+    },
     addCategory: async (req, res) => {
         try {
             const { name } = req.body;
@@ -52,15 +60,7 @@ const categoryController = {
             res.status(500).json({ error: 'Đã xảy ra lỗi trong quá trình xóa danh mục' });
         }
     },
-    getAllCategory: async (req, res) => {
-        try {
-            const allCategories = await Category.find();
-            res.status(200).json(allCategories);
-        } catch (error) {
-            console.error('Error fetching categories:', error.message);
-            res.status(500).json({ error: 'Internal Server Error' });
-        }
-    },
+ 
 
     getCategoryById: async (req, res) => {
         try {
