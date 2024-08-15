@@ -110,7 +110,13 @@ const ManangerCategories = () => {
               <td className="text-left px-4 py-2">{index}</td>
               <td className="text-left px-4 py-2">{category?.name}</td>
               <td className="text-left px-4 py-2">{category?.Products.length === 0
-              ? "Tạm thơi chưa có sp" : "sẽ thêm sau"}</td>
+              ? "Tạm thơi chưa có sp" : (
+                category?.Products.map((product)=>(
+                    <div key={product._id}>
+                    <span> - {product?.name}</span>
+                    </div>
+                ))
+              )}</td>
               <td className="px-4 py-2"></td>
               <td className="text-left py-2"></td>
               <td className="text-left py-2"></td>
