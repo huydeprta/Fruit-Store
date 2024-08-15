@@ -133,6 +133,7 @@ const ManagerProduct = () => {
             setProduct={setDataEditProduct}
             onClick={() => updateProduct(false)}
             categories={categories}
+            setFormEdit={setFormEdit}
           />
         </div>
       )}

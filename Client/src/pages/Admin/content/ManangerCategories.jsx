@@ -84,6 +84,7 @@ const ManangerCategories = () => {
      onChange={(e)=>setDataEditCategory(e.target.value)}
     onClick={()=>updateCategory()}
     placeholder="Sửa tên danh mục"
+    setFormEdit={setFormEdit}
   />
       </div>
       )}
