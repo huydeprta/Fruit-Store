@@ -40,24 +40,36 @@ const ProductDetails = () => {
             <div className="flex items-center space-x-4">
               <div className="flex items-center">
                 <button className="border border-gray-400 px-2 py-1">-</button>
-                <input type="text" value="1" className="border-t border-b border-gray-400 w-12 text-center" />
+                <input type="text" value="1" className=" p-1 border-t border-b border-gray-400 w-12 text-center" />
                 <button className="border border-gray-400 px-2 py-1">+</button>
               </div>
-              <button className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600">
+              <button className="bg-[#669933] text-white px-4 py-2 rounded-3xl hover:bg-green-400">
                 Thêm vào giỏ
               </button>
             </div>
             <div>
-              <h2 className="text-lg font-semibold">Thông Tin Sản Phẩm</h2>
-              <p>{detailProduct?.description}</p>
-            </div>
-            <div>
-              <h2 className="text-lg font-semibold">Thông Tin Sản Phẩm</h2>
+              <h2 className="text-lg font-semibold">Xuất sứ</h2>
               <p>{detailProduct?.origin}</p>
             </div>
             <div>
               <h2 className="text-lg font-semibold">Bảo Quản Và Sử Dụng</h2>
               <p>{detailProduct?.storage}</p>
+            </div>
+            <div>
+            <h2 className="text-lg font-semibold">Hạn sử dụng</h2>
+            <p>{detailProduct?.expirydate}</p>
+            </div>
+            <div className=" pt-2 bg-[#fff7d9] rounded-xl border-[1px] border-dashed  border-[#669933]">
+              <div className="text-center text-[#669933]">Gọi ngay 0345646340 để nhận giá tốt nhất</div>
+              <img className="w-full" src="https://hoaqua.langsonweb.com/wp-content/uploads/2019/01/4-tieu-chi.png"></img>
+            </div>
+            <div>
+              <h2 className="text-lg font-semibold"> Danh mục</h2>
+              <p>{}</p>
+            </div>
+            <div>
+              <h2 className="text-lg font-semibold">Mô tả</h2>
+              <p>{detailProduct?.description}</p>
             </div>
           </div>
         </div>

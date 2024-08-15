@@ -1,5 +1,5 @@
 const EditProductForm = (props) => {
-  const { onClick, product, setProduct, categories } = props;
+  const { onClick, product, setProduct, categories , setFormEdit} = props;
   console.log('product', product);
 
 
@@ -69,6 +69,9 @@ const EditProductForm = (props) => {
         onChange={(e) => setProduct({ ...product, description: e.target.value })}
       />
       <button onClick={onClick} className="w-full bg-blue-500 text-[#fff] p-3 rounded-md">Cập nhật</button>
+      <button onClick={()=>setFormEdit(false)} className="w-full bg-red-500 text-white p-3 rounded-md mt-2">
+        Hủy
+      </button>
     </div>
   );
 };
