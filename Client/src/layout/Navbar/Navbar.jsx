@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom";
-import "./Navbar.css";
-import SearchProduct from "../../containers/searchProduct";
-import { UserProvider } from "../../hooks/UserContext";
 import { useContext, useState, useEffect } from "react";
+import "./Navbar.css";
+import { UserProvider } from "../../hooks/UserContext";
+import debounce from "../../config/debounce";
+import { SearchFruit } from "../../services/products/searchProductService";
 const Navbar = () => {
   const { user } = useContext(UserProvider);
   const [token, setToken] = useState(localStorage.getItem("token"));
+  const [keywords, setKeyword] = useState('')
+  const [fruit, setFruit] = useState([])
   const handleLogout = () => {
     localStorage.removeItem("token");
     setToken(null);
@@ -13,6 +16,25 @@ const Navbar = () => {
   useEffect(() => {
     setToken(localStorage.getItem("token"));
   }, []);
+
+  const debouceSearchProduct = debounce(async (keywords) => {
+    if (keywords.trim() === '') {
+      return
+    }
+    try {
+      const result = await SearchFruit(keywords)
+      setFruit(result)
+    } catch (error) {
+      console.log(error.response.data.message);
+    }
+  }, 1000)
+
+  const handleChange = (event) => {
+    const { value } = event.target;
+    setKeyword(value);
+    debouceSearchProduct(value);
+  };
+
   return (
     <>
       <nav className="nav">
@@ -45,9 +67,33 @@ const Navbar = () => {
           </ul>
 
           <div className="navbar-right">
-            <div className=" box-search">
-              <SearchProduct></SearchProduct>
+            <div className="box-search relative">
+              <input
+                type="text"
+                placeholder="Tìm kiếm trái cây"
+                className="search-input"
+                onChange={handleChange}
+                value={keywords}
+              />
+              {keywords.trim() !== '' && fruit.length > 0 && (
+                <div className="absolute top-[50px] w-[400px] bg-[#ffffff] z-10 rounded-[5px] p-2">
+                  {fruit.map((item) => (
+                    <div key={item.id} >
+                    <Link to={`/productdetails/${item._id}`}>
+                      <div className="flex items-center gap-2 cursor-pointer hover:bg-[#ededed] duration-300">
+                        <img className="w-[100px] h-[100px] rounded-[5px]" src={item?.image[0]} />
+                        <div>
+                        <span className="block">{item?.name}</span>
+                          <span className="block">Hạn sử dụng{item?.expirydate}</span>
+                        </div>
+                      </div>
+                      </Link>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
+
             <div>
               <Link to="/cart">
                 <span className=" material-symbols-outlined">shopping_bag</span>

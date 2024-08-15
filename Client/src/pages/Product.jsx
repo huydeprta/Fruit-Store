@@ -1,7 +1,7 @@
 import "../../public/style/Product.css";
 import Navbar from "../layout/Navbar/Navbar";
 import Footer from "../layout/Footer/Footer";
-import ButtonProducts from "../../components/button/buttonProducts";
+
 import CategoreisService from "../services/categories/categoriesService";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -50,7 +50,7 @@ const Products = () => {
                   <img src={product?.image[0]} alt="Papaya" className="product-image" />
                   <p>{product?.name}</p>
                   <p className="price">65,000₫</p>
-                  <ButtonProducts />
+                  <button className="bg-green-700 w-[95%] p-2 mx-2 text-[#fff] rounded-[5px]">Chọn Mua</button>
                 </div>
                 </Link>
               </>

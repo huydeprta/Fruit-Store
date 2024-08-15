@@ -20,9 +20,13 @@ connectDB();
 const RouterUser = require('./routers/UserRouter/User')
 const RouterCategories = require('./routers/Products/CategoriesRouters')
 const ProductsCategories = require('./routers/Products/ProductsRouters')
+const SearchProduct = require('./routers/Search/SearchRouter')
+
 app.use('/api/v1/user',RouterUser)
 app.use('/api/v1/user/category', RouterCategories);
 app.use('/api/v1/user/products', ProductsCategories);
+app.use('/api/v1/search/products', SearchProduct);
+
 
 // Default route
 app.get('/', (req, res) => {
