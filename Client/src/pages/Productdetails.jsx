@@ -1,21 +1,23 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "../layout/Navbar/Navbar";
 import Footer from "../layout/Footer/Footer";
 import ProductsServices from "../services/products/productsServices";
 import { formatCurrency } from "../config/formatCurrency";
+import { CartContext } from "../hooks/CartContext";
 const ProductDetails = () => {
   const [detailProduct, setDetailProduct] = useState({})
   const { id } = useParams()
-  console.log(id);
   const getDetailProduct = async () => {
     const data = await ProductsServices.GetDeltailProduct(id)
     setDetailProduct(data);
-
   }
   useEffect(() => {
     getDetailProduct()
   }, [id])
+  const { addToCart ,decreaseQuantity ,increaseQuantity ,quantity} = useContext(CartContext)
+
+
   return (
     <>
       <Navbar />
@@ -36,14 +38,14 @@ const ProductDetails = () => {
           </div>
           <div className="flex-1 space-y-4">
             <h1 className="text-2xl font-bold">{detailProduct?.name}</h1>
-            <p className="text-red-500 text-lg font-semibold">{ formatCurrency(detailProduct?.price)}</p>
+            <p className="text-red-500 text-lg font-semibold">{formatCurrency(detailProduct?.price)}</p>
             <div className="flex items-center space-x-4">
               <div className="flex items-center">
-                <button className="border border-gray-400 px-2 py-1">-</button>
-                <input type="text" value="1" className=" p-1 border-t border-b border-gray-400 w-12 text-center" />
-                <button className="border border-gray-400 px-2 py-1">+</button>
+                <button className="border border-gray-400 px-2 py-1" onClick={  ()=> decreaseQuantity(detailProduct._id)}>-</button>
+                <input type="text" value={quantity[detailProduct._id] || 1} readOnly className=" p-1 border-t border-b border-gray-400 w-12 text-center" />
+                <button className="border border-gray-400 px-2 py-1" onClick={()=>increaseQuantity(detailProduct._id)}>+</button>
               </div>
-              <button className="bg-[#669933] text-white px-4 py-2 rounded-3xl hover:bg-green-400">
+              <button className="bg-[#669933] text-white px-4 py-2 rounded-3xl hover:bg-green-400"   onClick={() => addToCart(detailProduct, quantity)}>
                 Thêm vào giỏ
               </button>
             </div>

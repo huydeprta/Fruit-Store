@@ -1,10 +1,20 @@
-
 import "../../public/style/Cart.css";
 import Navbar from '../layout/Navbar/Navbar';
 import Footer from '../layout/Footer/Footer';
 import { Link } from 'react-router-dom';
-const Cart = () => {
+import { useContext } from "react";
+import { CartContext } from "../hooks/CartContext";
+import { formatCurrency } from "../config/formatCurrency";
 
+const Cart = () => {
+    const { cart, decreaseQuantity, increaseQuantity, removeFromCart, quantity } = useContext(CartContext);
+
+    const calculateTotal = () => {
+        return cart.reduce((total, product) => {
+            const productQuantity = quantity[product._id] || 1;
+            return total + product.price * productQuantity;
+        }, 0);
+    };
 
     return (
         <>
@@ -18,26 +28,37 @@ const Cart = () => {
                                 <th>Giá</th>
                                 <th>Số lượng</th>
                                 <th>Tổng</th>
+                                <th>Hành động</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    <img src="https://product.hstatic.net/200000377165/product/artboard_6_6b979af74f1447afb0e256d58b80611a_large.png" alt="product" />
-                                </td>
-                                <td>60.000₫</td>
-                                <td>
-                                    <button>-</button>
-                                    <input type="text" value="1" readOnly />
-                                    <button>+</button>
-                                </td>
-                                <td>60.000₫</td>
-                            </tr>
+                            {cart.map((product, index) => {
+                                const productQuantity = quantity[product._id] || 1;
+                                return (
+                                    <tr key={index}>
+                                        <td>
+                                            <img src={product.image[0]} alt={product.name} />
+                                            <p>{product.name}</p>
+                                        </td>
+                                        <td>{formatCurrency(product.price)}</td>
+                                        <td>
+                                            <button onClick={() => decreaseQuantity(product._id)}>-</button>
+                                            <input type="text" value={productQuantity} readOnly />
+                                            <button onClick={() => increaseQuantity(product._id)}>+</button>
+                                        </td>
+                                        <td>{formatCurrency(product.price * productQuantity)}</td>
+                                        <td>
+                                            <button onClick={() => removeFromCart(product._id)}>Xóa</button>
+                                        </td>
+                                    </tr>
+                                );
+                            })}
                         </tbody>
                     </table>
                     <div className="cart-actions">
-                        <Link to="/Product"><button className="continue-shopping">← TIẾP TỤC XEM SẢN PHẨM</button></Link>
-                        <button className="update-cart">CẬP NHẬT GIỎ HÀNG</button>
+                        <Link to="/Product">
+                            <button className="continue-shopping">← TIẾP TỤC XEM SẢN PHẨM</button>
+                        </Link>
                     </div>
                 </div>
                 <div className="cart-summary">
@@ -45,14 +66,16 @@ const Cart = () => {
                     <div className="summary-details">
                         <div className="summary-item">
                             <span>Tổng phụ</span>
-                            <span>60.000₫</span>
+                            <span>{formatCurrency(calculateTotal())}</span>
                         </div>
                         <div className="summary-item">
                             <span>Tổng</span>
-                            <span>60.000₫</span>
+                            <span>{formatCurrency(calculateTotal())}</span>
                         </div>
                     </div>
-                    <Link to="/Chekout"><button className="checkout-button">TIẾN HÀNH THANH TOÁN</button></Link>
+                    <Link to="/Checkout">
+                        <button className="checkout-button">TIẾN HÀNH THANH TOÁN</button>
+                    </Link>
                     <button className="voucher-button">Phiếu ưu đãi</button>
                     <input type="text" placeholder="Mã ưu đãi" />
                     <button className="apply-voucher">Áp dụng</button>

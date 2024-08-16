@@ -4,9 +4,14 @@ import "./Navbar.css";
 import { UserProvider } from "../../hooks/UserContext";
 import debounce from "../../config/debounce";
 import { SearchFruit } from "../../services/products/searchProductService";
+import { CartContext } from "../../hooks/CartContext";
 const Navbar = () => {
   const { user } = useContext(UserProvider);
   const [token, setToken] = useState(localStorage.getItem("token"));
+  const { cart } = useContext(CartContext)
+
+
+
   const [keywords, setKeyword] = useState('')
   const [fruit, setFruit] = useState([])
   const handleLogout = () => {
@@ -34,6 +39,9 @@ const Navbar = () => {
     setKeyword(value);
     debouceSearchProduct(value);
   };
+
+
+
 
   return (
     <>
@@ -79,14 +87,14 @@ const Navbar = () => {
                 <div className="absolute top-[50px] w-[400px] bg-[#ffffff] z-10 rounded-[5px] p-2">
                   {fruit.map((item) => (
                     <div key={item.id} >
-                    <Link to={`/productdetails/${item._id}`}>
-                      <div className="flex items-center gap-2 cursor-pointer hover:bg-[#ededed] duration-300">
-                        <img className="w-[100px] h-[100px] rounded-[5px]" src={item?.image[0]} />
-                        <div>
-                        <span className="block">{item?.name}</span>
-                          <span className="block">Hạn sử dụng{item?.expirydate}</span>
+                      <Link to={`/productdetails/${item._id}`}>
+                        <div className="flex items-center gap-2 cursor-pointer hover:bg-[#ededed] duration-300">
+                          <img className="w-[100px] h-[100px] rounded-[5px]" src={item?.image[0]} />
+                          <div>
+                            <span className="block">{item?.name}</span>
+                            <span className="block">Hạn sử dụng{item?.expirydate}</span>
+                          </div>
                         </div>
-                      </div>
                       </Link>
                     </div>
                   ))}
@@ -96,7 +104,12 @@ const Navbar = () => {
 
             <div>
               <Link to="/cart">
-                <span className=" material-symbols-outlined">shopping_bag</span>
+                <div className="relative">
+                  <span className=" material-symbols-outlined">shopping_bag</span>
+                  <div className="absolute top-[-10px] right-[-5px] flex justify-center items-center bg-red-500 rounded-full w-[20px] h-[20px] text-[#fff]">
+                    {cart?.length}
+                  </div>
+                </div>
               </Link>
             </div>
             {token !== null ? (
