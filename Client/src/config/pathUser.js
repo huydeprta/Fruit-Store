@@ -8,7 +8,7 @@ const pathUser = {
     Register:'/register',
     Blog:'/blog',
     Introduce:'/introduce',
-    Chekout:'/chekout',
+    Checkout:'/checkout',
     Productdetails:'/productdetails/:id',
     NotFound:'/NotFound',
 

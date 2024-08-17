@@ -10,9 +10,8 @@ body {
 
 .checkout-form-container {
   display: flex;
-  margin: 20px auto;
-  max-width: 800px;
   width: 100%;
+  padding: 20px;
 }
 
 .checkout-form-section {
@@ -56,7 +55,6 @@ body {
 .checkout-order-section {
   padding: 20px;
   width: 100%;
-  max-width: 400px;
   margin-bottom: 20px;
 }
 
@@ -100,6 +98,7 @@ body {
   font-weight: bold;
   font-size: 0.9em;
   margin-bottom: 0.4em;
+  display: block;
 }
 
 .paymen_box p {

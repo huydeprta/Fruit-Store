@@ -21,11 +21,15 @@ const RouterUser = require('./routers/UserRouter/User')
 const RouterCategories = require('./routers/Products/CategoriesRouters')
 const ProductsCategories = require('./routers/Products/ProductsRouters')
 const SearchProduct = require('./routers/Search/SearchRouter')
+const Checkout = require('./routers/Products/CheckoutRouters')
+
 
 app.use('/api/v1/user',RouterUser)
 app.use('/api/v1/user/category', RouterCategories);
 app.use('/api/v1/user/products', ProductsCategories);
 app.use('/api/v1/search/products', SearchProduct);
+app.use('/api/v1/checkout', Checkout);
+
 
 
 // Default route

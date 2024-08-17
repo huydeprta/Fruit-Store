@@ -7,7 +7,7 @@ import Register from "../pages/Register";
 import Home from "../pages/Home";
 import Blog from "../pages/Blog";
 import Introduce from "../pages/Introduce";
-import Chekout from "../pages/Chekout";
+import Checkout from "../pages/Checkout";
 import Productdetails from "../pages/Productdetails";
 import NotFound from "../pages/NotFound";
 const publicRouterUser = [
@@ -48,8 +48,8 @@ const publicRouterUser = [
         component: Introduce,
     },
     {
-        path: PathUser.Chekout,
-        component: Chekout,
+        path: PathUser.Checkout,
+        component: Checkout,
     },
     {
         path: PathUser.NotFound,

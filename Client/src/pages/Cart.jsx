@@ -5,16 +5,26 @@ import { Link } from 'react-router-dom';
 import { useContext } from "react";
 import { CartContext } from "../hooks/CartContext";
 import { formatCurrency } from "../config/formatCurrency";
+import { useNavigate } from "react-router-dom";
+import { showToastError } from "../config/toastConfig";
 
 const Cart = () => {
     const { cart, decreaseQuantity, increaseQuantity, removeFromCart, quantity } = useContext(CartContext);
-
+    const navigate = useNavigate()
     const calculateTotal = () => {
         return cart.reduce((total, product) => {
             const productQuantity = quantity[product._id] || 1;
             return total + product.price * productQuantity;
         }, 0);
     };
+    const handleNavigateCheckout = () => {
+        if (cart.length <= 0) {
+            navigate('/')
+            showToastError('Vui lòng thêm sản phẩm để tới thanh toán')
+        } else {
+            navigate('/checkout')
+        }
+    }
 
     return (
         <>
@@ -43,7 +53,7 @@ const Cart = () => {
                                         <td>{formatCurrency(product.price)}</td>
                                         <td>
                                             <button onClick={() => decreaseQuantity(product._id)}>-</button>
-                                            <input type="text" value={productQuantity} readOnly />
+                                            <input className="w-[50px] pl-4" type="text" value={productQuantity} readOnly />
                                             <button onClick={() => increaseQuantity(product._id)}>+</button>
                                         </td>
                                         <td>{formatCurrency(product.price * productQuantity)}</td>
@@ -73,9 +83,7 @@ const Cart = () => {
                             <span>{formatCurrency(calculateTotal())}</span>
                         </div>
                     </div>
-                    <Link to="/Checkout">
-                        <button className="checkout-button">TIẾN HÀNH THANH TOÁN</button>
-                    </Link>
+                    <button className="checkout-button" onClick={handleNavigateCheckout}>TIẾN HÀNH THANH TOÁN</button>
                     <button className="voucher-button">Phiếu ưu đãi</button>
                     <input type="text" placeholder="Mã ưu đãi" />
                     <button className="apply-voucher">Áp dụng</button>
