@@ -11,5 +11,13 @@ const CheckoutService = {
             showToastError(error.response.data.message)
         } 
     }, 
+    getAllCheckout: async ()=>{
+        try {
+            const {data} = await http.get('/checkout')            
+            return {data}
+        } catch (error) {
+            showToastError(error.response.data.message)
+        } 
+    }, 
 }
 export default CheckoutService

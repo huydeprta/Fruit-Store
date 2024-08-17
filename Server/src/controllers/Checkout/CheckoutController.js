@@ -33,5 +33,13 @@ checkoutUser: async (req, res) => {
         res.status(500).json({ message:error.message });
     }
 },
+getAllCheckout: async (req,res)=>{
+     try {
+        const dataCheckout = await Checkout.find()
+        res.status(200).json(dataCheckout)
+     } catch (error) {
+        res.status(500).json({message:error.message})
+     }
+}
 }
 module.exports = checkoutController;
