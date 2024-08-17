@@ -91,40 +91,54 @@ const ProductsController = {
     updateProducts: async (req, res) => {
         try {
             const Productid = req.params.id;
-            const {name, origin, image, storage, expirydate, categories, price, description } = req.body;
-            
+            const { name, origin, image, storage, expirydate, categories, price, description } = req.body;
+    
+            // Tìm sản phẩm để lấy danh sách ảnh hiện tại
+            const product = await Product.findById(Productid);
+            if (!product) {
+                return res.status(404).json({ success: false, message: 'Không tìm thấy sản phẩm' });
+            }
+    
+            // Nếu có ảnh mới, thêm vào mảng ảnh hiện tại
+            let updatedImages = product.image;
+            if (image) {
+                updatedImages.push(image);
+            }
+    
             const updateProducts = await Product.findByIdAndUpdate(
                 Productid,
                 {
-                name,
-                origin,
-                image,
-                storage,
-                expirydate,
-                categories,
-                price,
-                description},
+                    name,
+                    origin,
+                    image: updatedImages, // Cập nhật mảng ảnh
+                    storage,
+                    expirydate,
+                    categories,
+                    price,
+                    description
+                },
                 { new: true }
-                
             );
+    
             if (!updateProducts) {
                 await Category.updateMany(
-                    { products: productId },
-                    { $pull: { products: productId } }
+                    { products: Productid },
+                    { $pull: { products: Productid } }
                 );
-            
+    
                 await Category.updateOne(
                     { _id: categories },
-                    { $addToSet: { products: productId } }
+                    { $addToSet: { products: Productid } }
                 );
             }
-
+    
             res.status(200).json({ success: true, message: 'Cập nhập thành công', updateProducts });
             
         } catch (error) {
             res.status(500).json({ success: false, message: 'Internal Server Error', error: error.message });
         }
     }
+    
 };
 
 module.exports = ProductsController;

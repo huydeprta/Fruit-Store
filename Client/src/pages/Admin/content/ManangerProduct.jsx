@@ -165,8 +165,8 @@ const ManagerProduct = () => {
                 <td className="text-left px-4 py-2">{product?.origin}</td>
                 <td className="text-left px-4 py-2">
                   <img
-                    className="w-[60px] rounded-[10px]"
-                    src={product?.image}
+                  className="w-[60px] rounded-[10px]"
+                    src={product?.image[0]}
                     alt={product?.name}
                   />
                 </td>
